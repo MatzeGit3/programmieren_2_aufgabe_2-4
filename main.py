@@ -18,3 +18,4 @@ current_user = st.selectbox(
 )
 
 st.write(f"The selectet user: {current_user}")
+st.write()
