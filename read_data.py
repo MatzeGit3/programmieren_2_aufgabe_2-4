@@ -46,7 +46,7 @@ def find_person_data_by_name(suchstring):
     for eintrag in person_data:
         print(eintrag)
         if (eintrag["lastname"] == nachname and eintrag["firstname"] == vorname):
-            print()
+            
 
             return eintrag
     else:
