@@ -24,7 +24,7 @@ with tab1:
 
     st.plotly_chart(fig)
     hr_max = 190    
-    Zone_1_df, Zone_2_df, Zone_3_df, Zone_4_df, Zone_5_df = add_Hr_Zone(df, hr_max)
+    
     st.write("Zone 1:", Zone_1_df)
     st.write("Zone 2:", Zone_2_df)
     st.write("Zone 3:", Zone_3_df)
