@@ -55,7 +55,7 @@ def make_plot(df):
     fig = px.line(df.head(2000), x= "Zeit in ms", y="Messwerte in mV")
     return fig
 
-if __name__=="__main__":
-    activity_df = read_my_activity()
-
-    print(activity_df)
+if __name__ == "__main__":
+    df = read_my_activity()
+    fig = make_power_hr_plot(df)
+    fig.show()
