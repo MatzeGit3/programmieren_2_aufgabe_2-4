@@ -1,16 +1,6 @@
-
-
-
 import pandas as pd
 import matplotlib.pyplot as plt
-
 import plotly.express as px
-
-
-
-
-
-
 
 def read_my_activities_csv():
     df = pd.read_csv("data/activities/activity.csv", sep=",", header=0)
@@ -19,7 +9,19 @@ def read_my_activities_csv():
 def make_plot_power(df):
     fig = px.line(df, x= df.index, y="PowerOriginal")
     return fig
+      
+def add_hr_zones(df, hr_max):
+    bins = [0, hr_max * 0.6, hr_max * 0.7, hr_max * 0.8, hr_max * 0.9, hr_max]
+    labels = ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5"]
 
+    df["HR Zone"] = pd.cut(
+        df["HeartRate"],
+        bins=bins,
+        labels=labels,
+        include_lowest=True
+    )
+
+    return df
 
 def make_plot(df):
 
