@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import plotly.express as px
 
 def read_my_activities_csv():
