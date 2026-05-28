@@ -1,9 +1,9 @@
 import streamlit as st
 from read_pandas import read_my_csv
 from read_pandas import make_plot
-from read_pandas import read_my_activity, make_power_hr_plot
+from read_pandas import read_my_activity, make_hr_plot
 
-# Wo startet sie Zeitreihe
+# Wo startet sie Zeitreihef
 # Wo endet sich
 # Was ist die Maximale und Minimale Spannung
 # Grafik

@@ -21,7 +21,7 @@ def read_my_activity():
 
 
 
-def make_hr_plot(df):
+def make_power_hr_plot(df):
     fig = px.line(
         df,
         x="time_seconds",
@@ -33,7 +33,7 @@ def make_hr_plot(df):
         }
     )
     return fig
-     
+   
     
 def add_hr_zones(df, hr_max):
     bins = [0, hr_max * 0.6, hr_max * 0.7, hr_max * 0.8, hr_max * 0.9, hr_max]
