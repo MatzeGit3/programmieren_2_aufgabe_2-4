@@ -82,77 +82,7 @@ Dabei wird eine virtuelle Umgebung erstellt und die benötigten Abhängigkeiten 
 
 Wichtig ist, dass die Datei `pdm.lock` im Repository vorhanden ist. Dadurch können andere Personen das Projekt mit denselben Paketversionen installieren.
 
-# Benötigte Python-Pakete
 
-Für das Projekt werden hauptsächlich folgende Pakete verwendet:
-
-* `pandas` zum Einlesen und Verarbeiten der Daten
-* `plotly` zum Erstellen interaktiver Grafiken
-* `streamlit` zum Erstellen der Web-App
-* `jupyter` für die Übungsnotebooks und zum Nachvollziehen der Pandas-Grundlagen
-
-# Projektstruktur
-
-```text
-programmieren_2_aufgabe_2-4/
-├── data/
-│   ├── activities/
-│   │   └── activity.csv
-│   └── ekg_data/
-│       └── 01_Ruhe.txt
-├── interactiv_plot.py
-├── read_pandas.py
-├── main.py
-├── my_first_pandas.py
-├── read_data.py
-├── pyproject.toml
-├── pdm.lock
-├── README.md
-└── screenshot.png
-```
-
-# Wichtige Dateien
-
-## `data/activities/activity.csv`
-
-Diese Datei enthält die Aktivitätsdaten.
-
-Für die Aufgabe sind vor allem folgende Spalten wichtig:
-
-* `Duration`
-* `HeartRate`
-* `PowerOriginal`
-
-Aus `Duration` wird eine fortlaufende Zeitachse berechnet.
-`HeartRate` enthält die Herzfrequenzwerte.
-`PowerOriginal` enthält die Leistungswerte.
-
-## `data/ekg_data/01_Ruhe.txt`
-
-Diese Datei enthält EKG-Messdaten.
-
-Die Werte werden mit `pandas` eingelesen. Da die Datei keine Spaltenüberschriften besitzt, werden die Spaltennamen im Code selbst gesetzt:
-
-* `Messwerte in mV`
-* `Zeit in ms`
-
-## `read_pandas.py`
-
-Diese Datei enthält Funktionen zum Einlesen und Verarbeiten der Daten.
-
-Darin befinden sich unter anderem Funktionen zum:
-
-* Einlesen der EKG-Daten
-* Einlesen der Aktivitätsdaten
-* Berechnen einer Zeitachse
-* Erstellen von Plotly-Grafiken
-* Einteilen der Herzfrequenz in Zonen
-
-## `interactiv_plot.py`
-
-Diese Datei enthält die Streamlit-App.
-
-Die App besteht aus Tabs. Im ersten Tab werden die EKG-Daten angezeigt. Im zweiten Tab werden die Aktivitätsdaten dargestellt und ausgewertet.
 
 # App starten
 
@@ -207,24 +137,3 @@ Das Ergebnis ist eine interaktive Streamlit-App, mit der Messdaten aus CSV- und 
 
 Die Aktivitätsdaten werden über eine Zeitachse visualisiert. Dadurch kann der Verlauf der Herzfrequenz und der Leistung während der Aktivität untersucht werden. Die Herzfrequenzzonen helfen zusätzlich dabei, die Belastungsintensität während der Aktivität besser einzuordnen.
 
-# Abgabe
-
-Für die Abgabe wird das öffentliche GitHub-Repository in Sakai verlinkt.
-
-Vor der Abgabe sollten folgende Punkte geprüft werden:
-
-* Die App startet ohne Fehlermeldung.
-* Die Datei `activity.csv` liegt im richtigen Ordner.
-* Die Datei `01_Ruhe.txt` liegt im richtigen Ordner.
-* `pyproject.toml` enthält keine Merge-Konflikt-Markierungen.
-* `pdm.lock` ist vorhanden.
-* `.gitignore` ist vorhanden.
-* `README.md` ist vollständig.
-* `screenshot.png` ist vorhanden.
-* Der finale Commit liegt im `main`-Branch.
-
-Der finale Commit soll mit folgender Nachricht erstellt werden:
-
-```bash
-git commit -m "Abgabe: Interaktiver Plot"
-```
