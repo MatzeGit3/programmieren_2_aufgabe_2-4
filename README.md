@@ -199,7 +199,7 @@ Zusätzlich sind beziehungsweise werden folgende Funktionen ergänzt:
 
 Die Datei `screenshot.png` zeigt einen Screenshot der Streamlit-App.
 
-![Screenshot der Streamlit-App](screenshot.png)
+![Screenshot der Streamlit-App](data/pictures/screenshot.png)
 
 # Ergebnis
 
