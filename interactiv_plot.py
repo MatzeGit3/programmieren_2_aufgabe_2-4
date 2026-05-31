@@ -1,18 +1,10 @@
 import streamlit as st
 import read_pandas as rp
 
-
-
-
-
 st.header("Heartrate and Power Data")
 st.write("# My Plot")
 max_heart_rate = st.number_input(
-    "Maximale Herzfrequenz eingeben",
-    min_value=100,
-    max_value=250,
-    value=190,
-    step=1
+    "Maximale Herzfrequenz eingeben", min_value=100, max_value=250, value=190, step=1
 )
 
 st.write("Deine maximale Herzfrequenz ist:", max_heart_rate)
@@ -25,10 +17,4 @@ st.write(time_in_zones)
 st.write("Durchschnittliche Herzfrequenz:", rp.power_mean(df["HeartRate"]))
 st.write("Maximale Herzfrequenz:", rp.power_max(df["HeartRate"]))
 st.write("Durchschnittliche Leistung:", rp.power_mean(df["PowerOriginal"]))
-
-
-    
-   
-
-
-    
+st.write("Maximale Leistung:", df["PowerOriginal"].max())
