@@ -1,14 +1,14 @@
 import streamlit as st
 import read_pandas as rp
-
+df = rp.read_my_activities_csv()
+HR_max = rp.power_max(df["HeartRate"])
 st.header("Heartrate and Power Data")
 st.write("# My Plot")
 max_heart_rate = st.number_input(
-    "Maximale Herzfrequenz eingeben", min_value=100, max_value=250, value=190, step=1
+    "Maximale Herzfrequenz eingeben", min_value=HR_max, max_value=250, value=HR_max, step=1
 )
 
 st.write("Deine maximale Herzfrequenz ist:", max_heart_rate)
-df = rp.read_my_activities_csv()
 fig = rp.make_power_and_hr_plot(df, max_heart_rate, zones=rp.zones())
 st.plotly_chart(fig)
 st.write("Zeit in Herzfrequenzzonen:")
