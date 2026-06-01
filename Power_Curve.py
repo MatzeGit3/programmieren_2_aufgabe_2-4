@@ -19,20 +19,14 @@ def find_best_effort(df, window_size):
     best_effort = df["PowerOriginal"].rolling(window=window_size).mean()
 
     best_effort_max = best_effort.max()
-    end_index = best_effort.idxmax()
-
-    start_index = end_index - window_size + 1
-
-    print(f"Best Effort Max: {best_effort_max} W, Start Index: {start_index}, End Index: {end_index}")
-
-    return best_effort_max, start_index, end_index
+    return best_effort_max
 
 
 def create_PC_df(df, windows_list, sampling_interval=1):
     results = []
 
     for window in windows_list:
-        best_effort_max, start_index, end_index = find_best_effort(df, window_size=window)
+        best_effort_max = find_best_effort(df, window_size=window)
 
         results.append({"Time": window * sampling_interval,"Power": best_effort_max})
 
