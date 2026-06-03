@@ -1,75 +1,76 @@
 # Leistungskurve II
 
-Dieses Projekt berechnet eine Power Curve aus Leistungsdaten eines Radfahrers. Die Power Curve zeigt für verschiedene Zeitfenster die jeweils höchste durchschnittliche Leistung.
+Dieses Projekt berechnet eine Power Curve aus Leistungsdaten eines Radfahrers. Dabei wird für verschiedene Zeitfenster die jeweils höchste durchschnittliche Leistung bestimmt und grafisch dargestellt.
 
-## Funktionen
+## Funktionsweise
 
-* Einlesen der Aktivitätsdaten aus einer CSV-Datei
-* Berechnung der besten Durchschnittsleistung für verschiedene Zeitfenster
-* Erstellung eines DataFrames mit den Ergebnissen
-* Visualisierung der Power Curve mit Plotly
-* Darstellung der Ergebnisse in einer Streamlit-Anwendung
+Die Leistungsdaten werden aus einer CSV-Datei eingelesen. Für jedes mögliche Zeitfenster wird mithilfe eines gleitenden Fensters (Rolling Window) die durchschnittliche Leistung berechnet. Anschließend wird die höchste gefundene Durchschnittsleistung gespeichert.
 
-## Verwendete Technologien
+Die Ergebnisse werden in einem DataFrame gesammelt und anschließend als Power Curve visualisiert.
 
-* Python
-* Pandas
-* Plotly
-* Streamlit
+## Verwendete Bibliotheken
+
+* pandas
+* numpy
+* plotly
 
 ## Projektstruktur
 
 ```text
 .
-├── data/
-│   └── activities/
+├── data
+│   └── activities
 │       └── activity.csv
-├── src/
-│   ├── functions.py
-│   └── interactive_plot.py
-├── screenshot.png
-├── pyproject.toml
-└── README.md
+├── Power_Curve.py
+├── README.md
+└── screenshot.png
 ```
 
-## Installation
+## Ausführung
 
-Abhängigkeiten installieren:
+Das Programm kann mit folgendem Befehl gestartet werden:
 
 ```bash
-pdm install
+python Power_Curve.py
 ```
 
-## Anwendung starten
+Nach dem Start werden:
 
-Die Streamlit-Anwendung kann mit folgendem Befehl gestartet werden:
+1. die Leistungsdaten eingelesen,
+2. die Power Curve berechnet,
+3. die Ergebnisse im Terminal ausgegeben,
+4. die grafische Darstellung im Browser geöffnet.
 
-```bash
-pdm run streamlit run src/interactive_plot.py
-```
+## Wichtige Funktionen
 
-Alternativ:
+### `read_my_activities_csv()`
 
-```bash
-streamlit run src/interactive_plot.py
-```
+Liest die Aktivitätsdaten aus der CSV-Datei ein.
 
-## Ausgabe
+### `create_window_sizes()`
 
-Die Anwendung erzeugt:
+Erzeugt eine Liste aller möglichen Fenstergrößen für die Berechnung der Power Curve.
 
-* eine Tabelle mit den berechneten Leistungswerten
-* eine grafische Darstellung der Power Curve
+### `find_best_effort()`
 
-Die x-Achse zeigt die Zeitfenster (z.B. 10 s, 30 s, 1 min, 5 min, 30 min), die y-Achse die jeweils höchste durchschnittliche Leistung in Watt.
+Berechnet für eine Fenstergröße die maximale durchschnittliche Leistung.
+
+### `create_PC_df()`
+
+Erstellt einen DataFrame mit den berechneten Leistungswerten.
+
+### `plot_power_curve()`
+
+Visualisiert die Power Curve mit Plotly.
+
+## Beispielausgabe
+
+Die x-Achse zeigt die Dauer des Zeitfensters in Sekunden. Die y-Achse zeigt die maximale durchschnittliche Leistung in Watt, die innerhalb dieses Zeitfensters erreicht wurde.
+
+
 
 ## Screenshot
 
-Ein Screenshot der Anwendung befindet sich in der Datei:
+Die Datei `PC_screenshot.png` zeigt einen Screenshot der Streamlit-App.
 
-```text
-screenshot.png
-```
-
-```
-```
+![Screenshot der Streamlit-App](data/pictures/PC_screenshot.png)
