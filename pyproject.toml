@@ -1,12 +1,12 @@
 [project]
-name = "programmieren_2_aufgabe_2-4"
+name = "5_build_dashboard"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
-    {name = "MatzeGit3", email = "wm4310@mci4me.at"},
+    {name = "jhumci", email = "julian.huber@mci.edu"},
 ]
-dependencies = ["streamlit>=1.57.0", "pandas>=3.0.3", "jupyter>=1.1.1", "plotly>=6.7.0"]
-requires-python = "==3.14.*"
+dependencies = ["plotly>=6.1.2", "streamlit>=1.45.1", "matplotlib>=3.10.3"]
+requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
 

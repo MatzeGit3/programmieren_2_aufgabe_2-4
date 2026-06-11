@@ -1,7 +1,7 @@
 import streamlit as st
 import read_pandas as rp
 import plotly.express as px
-from advanced_powercurve import read_data, add_timer, create_power_curve_dataframe
+from Power_Curve import read_data, add_timer, create_power_curve_dataframe
 
 df = rp.read_my_activities_csv()
 HR_max = rp.power_max(df["HeartRate"])
